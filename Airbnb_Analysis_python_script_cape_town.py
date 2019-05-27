@@ -203,7 +203,13 @@ ax.set(xlabel='Exponential Distribution', ylabel='Frequency')
 
 #%%
 # fitting a expontial distrbution to useage
-data_expon = expon.rvs(scale=2.2, loc=0, size=1000)
+data_expon = expon.rvs(scale=3.1, loc=0, size=1000)
+data_expon.mean()
+
+
+#%%
+# fitting a expontial distrbution to useage
+data_expon = expon.rvs(scale=3.1, loc=0, size=1000)
 ax = sns.distplot(data_expon,
                   kde=True,
                   bins=100,
@@ -282,10 +288,10 @@ plot_simulation(df , scale = 3.1, number_sim = 100000)
 
 
 #%%
-# monte-carlo simulation of income generated
+# monte-carlo simulation of income generated with +5%
 
 
-plot_simulation(df , scale = 3.1, number_sim = 100000)
+plot_simulation(df , scale = 8.1, number_sim = 100000)
 
 
 

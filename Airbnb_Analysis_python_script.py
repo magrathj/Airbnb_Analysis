@@ -196,6 +196,11 @@ ax.set(xlabel='Exponential Distribution', ylabel='Frequency')
 #%%
 # fitting a expontial distrbution to useage
 data_expon = expon.rvs(scale=5.5, loc=0, size=1000)
+data_expon.mean()
+
+#%%
+# fitting a expontial distrbution to useage
+data_expon = expon.rvs(scale=5.5, loc=0, size=1000)
 ax = sns.distplot(data_expon,
                   kde=True,
                   bins=100,
