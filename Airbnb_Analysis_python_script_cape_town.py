@@ -18,13 +18,13 @@ sns.set(rc={'figure.figsize':(5,5)})
 
 #%%
 # read in the listings
-listings_df = pd.read_csv("./Data/london_listings.csv")
+listings_df = pd.read_csv("./Data/capetown_listings.csv")
 listings_df.head()
 
 
 #%%
 # read in the reviews
-reviews_df = pd.read_csv("./Data/london_reviews.csv")
+reviews_df = pd.read_csv("./Data/capetown_reviews.csv")
 reviews_df['date'] = pd.to_datetime(reviews_df['date'])
 reviews_df.head()
 
@@ -37,6 +37,14 @@ mask = (reviews_df['date'] > start_date) & (reviews_df['date'] <= end_date)
 reviews_df = reviews_df.loc[mask]
 reviews_df = reviews_df.groupby('listing_id').count()
 reviews_df.head()
+
+
+
+#%%
+# convert to pounds 
+listings_df['price'] = listings_df['price']/16.5676
+listings_df.head()
+
 
 #%%
 # summary stats around each dataframe
@@ -183,7 +191,7 @@ print(df['income'].describe())
 # distrbution of useage
 #df['useage'].hist(bins=100);
 data =  df[df['useage'] < 60]
-print(df[df['useage'] < 60].useage.median())
+print(df[df['useage'] < 110].useage.median())
 ax = sns.distplot(data['useage'],
                   kde=True,
                   bins=100,
@@ -195,7 +203,7 @@ ax.set(xlabel='Exponential Distribution', ylabel='Frequency')
 
 #%%
 # fitting a expontial distrbution to useage
-data_expon = expon.rvs(scale=5.5, loc=0, size=1000)
+data_expon = expon.rvs(scale=2.2, loc=0, size=1000)
 ax = sns.distplot(data_expon,
                   kde=True,
                   bins=100,
@@ -206,7 +214,7 @@ ax.set(xlabel='Exponential Distribution', ylabel='Frequency')
 
 #%%
 # fitting a gamma distrbution to useage
-data_gamma = gamma.rvs(a=20, size=10000)
+data_gamma = gamma.rvs(a=22, size=10000)
 ax = sns.distplot(data_gamma,
                   kde=True,
                   bins=100,
@@ -270,9 +278,14 @@ def plot_simulation(df, scale = 5.2, number_sim = 1000):
 
 
 
-plot_simulation(df , scale = 5.2, number_sim = 100000)
+plot_simulation(df , scale = 3.1, number_sim = 100000)
 
 
+#%%
+# monte-carlo simulation of income generated
+
+
+plot_simulation(df , scale = 3.1, number_sim = 100000)
 
 
 
