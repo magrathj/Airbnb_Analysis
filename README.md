@@ -23,20 +23,23 @@ First one being: how much income does a specific area generate and how does that
 
 In the results I go through Airbnb's interesting datasets and estimated how much income they generate in different cities. I then use Monte Carlo simulations to estimate the impact of an increase of 5% to the mean for estimated occupancy and predicted the resulting income that would generate (£18.7m). The power of this simple techniques is that you can start to quantify some of the uncertainty associated with decision making process in the workplace and allow decision makers to make informed calls on what to do next.
 
+## Blog Link to Medium article
+https://medium.com/@magrathj/using-monte-carlo-simulations-to-find-out-how-much-money-airbnb-makes-in-different-cities-a8bdf19a4a58
+
 
 ## Libraries used with 3.7.1 Python enviroment
-import pandas as pd
-import matplotlib.pyplot as plt 
-import numpy as np
-import random
-from scipy.stats import expon
-from scipy.stats import gamma
-from numpy import array
-import seaborn as sns
-import plotly
-import plotly.plotly as py
-import plotly.graph_objs as go
-import time
+### import pandas as pd
+### import matplotlib.pyplot as plt 
+### import numpy as np
+### import random
+### from scipy.stats import expon
+### from scipy.stats import gamma
+### from numpy import array
+### import seaborn as sns
+### import plotly
+### import plotly.plotly as py
+### import plotly.graph_objs as go
+### import time
 
 
 ## Data sources
