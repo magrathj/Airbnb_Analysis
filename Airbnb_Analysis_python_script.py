@@ -16,6 +16,12 @@ plotly.offline.init_notebook_mode()
 sns.set(color_codes=True)
 sns.set(rc={'figure.figsize':(5,5)})
 
+
+#%% 
+# ## Data understanding 
+
+
+
 #%%
 # read in the listings
 listings_df = pd.read_csv("./Data/london_listings.csv")
@@ -120,6 +126,10 @@ print(df['id'].count())
 print(df.describe())
 
 
+#%% 
+# ## Prepare Data
+# get the data in a format that we can answer how much money Cape Town earns for Airbnb
+
 
 #%%
 # Percentage of dates compared to availablity
@@ -168,7 +178,18 @@ print('median of usage')
 print(df.useage.median())
 
 
+#%% 
+# ## Handling NA datas
+# Because there werent many NAs in the columns we are about, I am just going to remove any in the useage and price columns
 
+#%%
+# remove NAs
+df = df.dropna(subset = ['usage', 'price'])
+
+
+
+#%% 
+# ## How much income was generated from London
 
 #%%
 # How much income was generated 
@@ -178,6 +199,11 @@ print(df['income'].sum())
 df['income'].hist(bins=100);
 print(df['income'].describe())
 
+
+
+
+#%% 
+# ## Data modelling
 
 #%%
 # distrbution of useage
@@ -221,6 +247,8 @@ ax.set(xlabel='Exponential Distribution', ylabel='Frequency')
 
 
 
+#%% 
+# ## Evaluating results
 
 #%%
 # monte-carlo simulation functions
@@ -274,6 +302,16 @@ def plot_simulation(df, scale = 5.2, number_sim = 1000):
     plt.show()
 
 
+
+
+
+#%% 
+# ## What if analysis with Monte Carlo simulations
+
+
+
+#%% 
+# monte-carlo simulation of income generated with +5%
 
 plot_simulation(df , scale = 5.2, number_sim = 100000)
 

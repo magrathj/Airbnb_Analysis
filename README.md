@@ -27,6 +27,14 @@ In the results I go through Airbnb's interesting datasets and estimated how much
 https://medium.com/@magrathj/using-monte-carlo-simulations-to-find-out-how-much-money-airbnb-makes-in-different-cities-a8bdf19a4a58
 
 
+
+## Directory 
+
+There are two main files for the analysis: 1) the Airbnb_Analysis.ipynb and the 2) Airbnb_Analysis_cape_town.ipynb . The first notebook looks into answering the business questions around Airbnb's London's listings and the second notebook looks into answering the business questions around Airbnb's Cape Town's listings. The .py files are duplicates of the notebooks but can be run in an IDE like visual studio code. Lastly, the folder for data holds Cape Town's listing and reviews; and the data for London's listings and reviews
+
+
+
+
 ## Libraries used with 3.7.1 Python enviroment
 ### import pandas as pd
 ### import matplotlib.pyplot as plt 

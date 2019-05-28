@@ -1,3 +1,9 @@
+
+#%% [markdown]
+# ## Analysis into Cape Town's Airbnb listings 
+
+
+
 #%%
 # import libraries
 import pandas as pd
@@ -15,6 +21,7 @@ import time
 plotly.offline.init_notebook_mode()
 sns.set(color_codes=True)
 sns.set(rc={'figure.figsize':(5,5)})
+
 
 #%%
 # read in the listings
@@ -128,6 +135,10 @@ print(df['id'].count())
 print(df.describe())
 
 
+#%% 
+# ## Prepare Data 
+# get the data in a format that we can answer how much money Cape Town earns for Airbnb
+
 
 #%%
 # Percentage of dates compared to availablity
@@ -178,6 +189,18 @@ print(df.useage.median())
 
 
 
+#%% 
+# ## Handling NA datas
+# Because there werent many NAs in the columns we are about, I am just going to remove any in the useage and price columns
+
+#%%
+# remove NAs
+df = df.dropna(subset = ['usage', 'price'])
+
+
+#%% 
+# ## How much income was generated from Cape Town
+
 #%%
 # How much income was generated 
 df['income'] = df['price'] * df['useage']/100 * df['availability_365']
@@ -185,6 +208,12 @@ print(df['income'].sum())
 
 df['income'].hist(bins=100);
 print(df['income'].describe())
+
+
+
+
+#%% 
+# ## Data modelling
 
 
 #%%
@@ -230,6 +259,8 @@ ax.set(xlabel='Exponential Distribution', ylabel='Frequency')
 
 
 
+#%% 
+# ## Evaluating results
 
 #%%
 # monte-carlo simulation functions
@@ -285,6 +316,15 @@ def plot_simulation(df, scale = 5.2, number_sim = 1000):
 
 
 plot_simulation(df , scale = 3.1, number_sim = 100000)
+
+
+
+
+
+
+
+#%% 
+# ## What if analysis with Monte Carlo simulations
 
 
 #%%
